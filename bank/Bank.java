@@ -19,7 +19,7 @@ public class Bank extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         openAccBtn.addActionListener(new openAccount());
-        selectAccBtn.addActionListener(this);
+        selectAccBtn.addActionListener(new selectAccount());
         
         add(openAccBtn);
         add(selectAccBtn);
@@ -32,6 +32,12 @@ public class Bank extends JFrame implements ActionListener{
     class openAccount implements ActionListener{
         public void actionPerformed(ActionEvent e){
             new OpenAccount();
+        }
+    }
+    
+    class selectAccount implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            new SelectAccount();
         }
     }
     

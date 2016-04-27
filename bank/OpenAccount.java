@@ -1,13 +1,11 @@
 package bank;
 
-import java.util.*;
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class OpenAccount extends JFrame implements ActionListener{
     public int accNum, initialBal, depositVal, withdrawVal;
-    
+
     JButton addAccBtn = new JButton("Add Account");
     
     JLabel accNumTxt = new JLabel("Account Number: ");
@@ -35,7 +33,17 @@ public class OpenAccount extends JFrame implements ActionListener{
         add(initialBalField);        
         add(addAccBtn);
         
-        addAccBtn.addActionListener(this);
+        addAccBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                //ArrayList<ArrayList<Integer>> acclist = new ArrayList<ArrayList<Integer>>();   
+                accNum = Integer.parseInt(accNumField.getText());
+                initialBal = Integer.parseInt(initialBalField.getText()); 
+                
+                accNumTxt.setText("" + accNum);
+                initialBalTxt.setText("" + initialBal);
+            }  
+        });
+        
         
         setSize(350, 445);
         setLocation(100,100);
@@ -43,18 +51,15 @@ public class OpenAccount extends JFrame implements ActionListener{
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        accNum = Integer.parseInt(accNumField.getText());
-        initialBal = Integer.parseInt(initialBalField.getText());
-        
-        accNumTxt.setText("" + accNum);
-        initialBalTxt.setText("" + initialBal);
-    } 
+
     
     public void main (String args[]){
         new OpenAccount();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
