@@ -21,6 +21,9 @@ public class SelectAccount extends JFrame implements ActionListener {
     JLabel t1 = new JLabel("Enter Account:");
     JTextField accNumField = new JTextField();
     
+    JPanel p = new JPanel();
+    
+    JLabel accInfoLabel = new JLabel();
     
     public SelectAccount(){
         super("Select Account");
@@ -31,9 +34,13 @@ public class SelectAccount extends JFrame implements ActionListener {
 
         selectAccountBtn.setBounds(150,60,125,30);
         
+        accInfoLabel.setBounds(20, 80, 125, 30);
+        
         add(t1);
         add(accNumField);     
         add(selectAccountBtn);
+        
+        add(accInfoLabel);
         
         selectAccountBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
@@ -52,6 +59,7 @@ public class SelectAccount extends JFrame implements ActionListener {
     
     public void main (String args[]){
         new SelectAccount();
+        
     }
 
     @Override
